@@ -6,11 +6,15 @@ import time
 from urllib.parse import urlparse
 import os
 from typing import Dict, Optional
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Configure Gemini API
-GOOGLE_API_KEY = "AIzaSyBc5SYK2pvvdNq4mobecMaRzobZHdeOr2A"
+GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
 if not GOOGLE_API_KEY:
-    raise ValueError("Please set GOOGLE_API_KEY environment variable")
+    raise ValueError("Please set GOOGLE_API_KEY in your .env file")
 
 genai.configure(api_key=GOOGLE_API_KEY)
 model = genai.GenerativeModel('gemini-2.0-flash-lite')
