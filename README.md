@@ -1,4 +1,6 @@
+# Website Scraper with Gemini AI
 
+This project scrapes websites and uses Google's Gemini AI to extract company information from the scraped content.
 
 ## Setup Instructions
 
@@ -44,16 +46,29 @@ GOOGLE_API_KEY=your_api_key_here
      - Handles errors gracefully
      - Provides progress updates during processing
 
-2. `requirements.txt`
+2. `excel_processor.py`
+   - Processes and organizes contact information from Excel files
+   - Input: Raw Excel file with contact information
+   - Output: Organized Excel file with multiple sheets:
+     - Domain summary with contact counts
+     - Social media links organized by platform
+     - Contact information (emails, phones) organized by type
+   - Features:
+     - Deduplicates contact information
+     - Handles long URLs and splits them if needed
+     - Organizes data by domain, social media, and contact type
+     - Maintains Excel formatting and readability
+
+3. `requirements.txt`
    - Lists all Python package dependencies with their versions
    - Used for setting up the project environment
 
-3. `.env`
+4. `.env`
    - Stores environment variables (API keys)
    - Not tracked in git for security
    - Must be created manually with your Google API key
 
-4. `.gitignore`
+5. `.gitignore`
    - Specifies which files Git should ignore
    - Prevents sensitive data and unnecessary files from being committed
 
